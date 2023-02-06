@@ -19,30 +19,6 @@ foreach (var year in years)
         isFirst = false;
         continue;
     }
-    #region Old Logic
-    //if ((current == previous + 1) && isInRange == false)
-    //{
-    //    rangeStart = previous;
-    //    isInRange = true;
-    //}
-    //else if ((current == previous + 1))
-    //{
-    //    previous = current;
-    //}
-    //else if (isInRange == true && lastYear == current)
-    //{
-    //    ranges.Add($"{rangeStart}-{current}");
-    //}
-    //else if (isInRange == true)
-    //{
-    //    isInRange = false;
-    //    ranges.Add($"{rangeStart}-{previous}");
-    //}
-    //else
-    //{
-    //    ranges.Add($"{previous}");
-    //}
-    #endregion
 
     if (isConsecutiveYear == false)
     {
@@ -81,27 +57,11 @@ foreach (var year in years)
 
                 ranges.Add($"{currentYear}");
             }
-            //else
-            //{
-            //    ranges.Add($"{consecutiveYearStart.Value}-{previousYear}");
-            //    isConsecutiveYear = false;
-            //    consecutiveYearStart = null;
-            //}
         }
     }
 
     previousYear = currentYear;
 }
-
-//if (isInRange == true)
-//{
-//    isInRange = false;
-//    ranges.Add($"{rangeStart}-{previous}");
-//}
-//else
-//{
-//    ranges.Add($"{current}");
-//}
 
 Console.WriteLine(string.Join(", ", ranges));
 Console.ReadLine();
