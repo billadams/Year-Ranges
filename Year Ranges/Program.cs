@@ -1,6 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-var years = new List<int>() { 1981, 1990, 2004, 2005 };
+﻿var years = new List<int>() { 1981, 1990, 1982, 2004, 2005, 2010, 2002 };
+years.Sort();
 
 int previousYear = 0;
 var ranges = new List<string>();
@@ -46,15 +45,15 @@ foreach (var year in years)
         }
         else
         {
+            if (consecutiveYearStart.HasValue)
+            {
+                ranges.Add($"{consecutiveYearStart.Value}-{previousYear}");
+                isConsecutiveYear = false;
+                consecutiveYearStart = null;
+            }
+
             if (currentYear == lastYear)
             {
-                if (consecutiveYearStart.HasValue)
-                {
-                    ranges.Add($"{consecutiveYearStart.Value}-{previousYear}");
-                    isConsecutiveYear = false;
-                    consecutiveYearStart = null;
-                }
-
                 ranges.Add($"{currentYear}");
             }
         }
