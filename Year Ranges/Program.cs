@@ -1,9 +1,9 @@
-﻿var years = new List<int>() { 1981, 1990, 1982, 2004, 2005, 2010, 2002 };
+﻿var years = new List<int>() { 1981, 1990, 1982, 2004, 2005, 2010, 2011, 2002, 1975 };
 years.Sort();
 
 int previousYear = 0;
 var ranges = new List<string>();
-bool isFirst = true;
+bool isFirstYear = true;
 bool isConsecutiveYear = false;
 int? consecutiveYearStart = null;
 int lastYear = years.Last();
@@ -12,10 +12,10 @@ foreach (var year in years)
 {
     int currentYear = year;
 
-    if (isFirst)
+    if (isFirstYear)
     {
         previousYear = currentYear;
-        isFirst = false;
+        isFirstYear = false;
         continue;
     }
 
