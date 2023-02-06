@@ -27,7 +27,7 @@ foreach (var year in years)
 
             if (currentYear == lastYear)
             {
-                ranges.Add($"{consecutiveYearStart}-{currentYear}");
+                ranges.Add($"{consecutiveYearStart.Value}-{currentYear}");
             }
 
             isConsecutiveYear = true;
